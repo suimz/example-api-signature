@@ -9,9 +9,9 @@ ApiSignUtil.ts
 
 ```typescript
 /**
- * 使用文档
+ * 使用步骤：
  * 1. 安装依赖： npm i crypto-js
- * 2. 引入工具： import { sign } from '。。/ApiSignUtil';
+ * 2. 引入工具： import { sign } from '../ApiSignUtil';
  * 3. 签名参数： const signResult = sign(appId, appSecret, {...参数对象});
  * 4. 打印结果：console.log('签名数据', signResult);
  */
@@ -43,7 +43,7 @@ const sign = (appId: string, appSecret: string, params: any): SignResult => {
   params.nonce = nonce
   // 对参数按ASCII进行排序
   const sortParams = sortParamsAscii(params)
-  // 将参数组装成字符串，剔除空value的key
+  // 将参数组装成字符串，剔除空value的参数
   let paramsStr = ''
   for (let key in sortParams) {
     const val = sortParams[key]
@@ -61,7 +61,7 @@ const sign = (appId: string, appSecret: string, params: any): SignResult => {
 }
 
 /**
- * 对参数进行 ASCII 进行排序
+ * 对参数按 ASCII 进行排序
  * @param params
  */
 const sortParamsAscii = (params: Object): Object => {
