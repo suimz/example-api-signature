@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+# 接口签名配置
+signature:
+  # 自定义请求头参数名
+  header-app-id: _appId
+  header-sign: _sign
+  header-nonce: _nonce
+  header-timestamp: _timestamp
+  # 请求过期时间，单位：秒 - 防止重放请求
+  expire-time: 300
+  # 随机字符串长度 - 防止重放请求
+  nonce-len: 18
+  # 应用列表，实际场景建议放到存储介质中。
+  apps:
+    - id: 20210001
+      secret: d9d09b1f57dcb100fe69c98c93f37de4
+      remark: 备注
+    - id: 20210002
+      secret: 100af4e620024b40bbfc49214ea66509
+      remark: 备注
+
